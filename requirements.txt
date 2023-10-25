@@ -1,0 +1,4 @@
+pandas==2.0.1
+Pillow==10.1.0
+torch==2.0.1+cu117
+transformers==4.28.1
