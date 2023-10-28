@@ -2,5 +2,5 @@ azure_storage-blob==12.18.3
 pandas==2.0.1
 Pillow==10.1.0
 python-dotenv==1.0.0
-torch==2.0.1+cu117
+torch==2.0.1
 transformers==4.28.1
