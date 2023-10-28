@@ -7,7 +7,7 @@ import pickle
 from dataloader import *
 from settings import *
 
-GPU_ENABLED = True
+GPU_ENABLED = False
 
 # Initialize the CLIP model and processor
 checkpoint = "openai/clip-vit-large-patch14"
@@ -16,8 +16,8 @@ if GPU_ENABLED: model.to("cuda")
 processor = AutoProcessor.from_pretrained(checkpoint)
 
 azure_connection = AzureConnection('ekhome')
-azure_image_loader = AzureImageLoader(azure_connection, max_images=10) # 50.000
-data_loader = AzureDataLoader(azure_connection, azure_image_loader, batch_size=512) # 512
+azure_image_loader = AzureImageLoader(azure_connection, max_images=12) # 50.000
+data_loader = AzureDataLoader(azure_connection, azure_image_loader, batch_size=2) # 512
 labels_list_translated = pickle.load(open('utils/brick_title_list.pkl', 'rb'))
 
 with open('utils/brick_title_to_code.pkl', 'rb') as file:

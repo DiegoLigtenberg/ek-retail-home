@@ -160,11 +160,11 @@ class AzureDataLoader:
             local_file.write(blob_data.readall())
 
     def empty_images_in_temp(self):    
+        local_files = list(self.local_path.iterdir())
+        for file in local_files:
+            if file.is_file():
+                file.unlink()        
         pass    
-        # local_files = list(self.local_path.iterdir())
-        # for file in local_files:
-        #     if file.is_file():
-        #         file.unlink()
 
     def upload_csv_to_azure(self,xlsx_file_path,overwrite=True):                                       #containername = ekhome     folder = Images     filename = test_predictions.csv
         xlsx_file_path_name = Path(xlsx_file_path).name
