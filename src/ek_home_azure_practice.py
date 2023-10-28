@@ -29,11 +29,11 @@ with open(upload_file_path, mode='w') as file:
 # Create or reuse the container based on the OVERWRITE_CONTAINER variable
 container_client = blob_service_client.get_container_client(container_name)
 
-if OVERWRITE_CONTAINER:
-    try:
-        container_client.create_container()
-    except azure.core.exceptions.ResourceExistsError:
-        print(f"The container '{container_name}' already exists. Using the existing container.")
+# if OVERWRITE_CONTAINER:
+#     try:
+#         container_client.create_container()
+#     except azure.core.exceptions.ResourceExistsError:
+#         print(f"The container '{container_name}' already exists. Using the existing container.")
 
 # Upload the local file with the folder structure # can specify folder_name and file_name separately
 blob_client = blob_service_client.get_blob_client(container=container_name, blob=f"{blob_folder}/{local_file_name}")
@@ -44,16 +44,17 @@ try:
         blob_client.upload_blob(data, overwrite=OVERWRITE_FILES)
 except azure.core.exceptions.ResourceExistsError:
     print(f"The blob '{blob_folder}/{local_file_name}' already exists. It has been overwritten.")
-asd
 
+asd
 # List the blobs in the container
 try:
     blob_list = container_client.list_blobs() 
+    print(blob_list, "w00t")
     for blob in blob_list:
         print(blob.name)
 except Exception as e:
     print(f"An error occurred while listing blobs: {e}")
-
+asd
 
 # Download the blob to a local file
 # Add 'DOWNLOAD' before the .txt extension so you can see both files in the data directory

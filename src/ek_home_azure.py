@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv, find_dotenv, dotenv_values
 from pathlib import Path
 
+
 load_dotenv(find_dotenv(),override=True) # if dotenv already exists, then overwrite it!
 CONNECTION_STRING = os.getenv("CONNECTION_STRING")
 blob_service_client = BlobServiceClient.from_connection_string(CONNECTION_STRING)
@@ -47,7 +48,7 @@ try:
         else:
             # Handle other files in the container
             pass
-        if i>200:
+        if i>10:
             break
 except Exception as e:
     print(f"An error occurred while listing blobs: {e}")

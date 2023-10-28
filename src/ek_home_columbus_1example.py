@@ -14,7 +14,7 @@ model = AutoModelForZeroShotImageClassification.from_pretrained(checkpoint)
 processor = AutoProcessor.from_pretrained(checkpoint)
 
 # Directory containing the JPG images  
-image_directory = Path('C:/ek-images/Images')  # Convert the directory path to a Path object
+image_directory = Path('C:/ek-images/Images_s')  # Convert the directory path to a Path object
 jpg_files = sorted(image_directory.glob("*.jpg")) # List all JPG files in the directory using glob
 
 # load labels german and english(translated)
@@ -29,9 +29,10 @@ jpg_files[:500]
 # random.shuffle(labels_list)
 # random.shuffle(labels_list_translated)
 
-labels_list = labels_list[::]
-labels_list_translated = labels_list_translated[::]
-
+labels_list = labels_list[::] 
+labels_list = [x.lower() for x in labels_list]
+labels_list_translated = labels_list_translated[::] 
+labels_list_translated = [x.lower() for x in labels_list_translated]
 # print(labels_list)
 # asd
 
@@ -46,11 +47,11 @@ start_time = time.time()
 final_predictions = []
 for it ,jpg_file in enumerate(jpg_files):
     if it <4:
-        image = Image.open(r'C:\ek-images\Images\32702-10-621899.jpg')
+        image = Image.open(r'1 example.png')
         image = image.resize(size=(500,500),resample=Image.Resampling.BICUBIC)
-        image.show()
+        # image.show()
         # print(image.size)
-        asd
+        # asd
         kategorie_prediction = []
         # for kategorie in range(len(labels_list)):
 

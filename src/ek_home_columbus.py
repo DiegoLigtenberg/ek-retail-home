@@ -11,12 +11,13 @@ checkpoint = "openai/clip-vit-large-patch14"
 model = AutoModelForZeroShotImageClassification.from_pretrained(checkpoint)
 processor = AutoProcessor.from_pretrained(checkpoint)
 
-print('hello world')
-import sys
-sys.exit()
+# print('hello world')
+# import sys
+# sys.exit()
 # Directory containing the JPG images
-image_directory = Path('C:/ek-images/Images')
+image_directory = Path('C:/ek-images/Images_s')
 jpg_files = sorted(image_directory.glob("*.jpg"))
+jpg_files = jpg_files[:250]
 
 
 
@@ -71,7 +72,7 @@ columns = ['image_file'] + ['Kategorie 4']
 df = pd.DataFrame(final_predictions, columns=columns)
 print(df)
 
-df.to_excel('test_predictions_brick2.xlsx', index=False)
+# df.to_excel('test_predictions_brick2.xlsx', index=False)
 
 # Calculate the elapsed time
 elapsed_time = time.time() - start_time
