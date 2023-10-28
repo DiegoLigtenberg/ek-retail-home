@@ -1,6 +1,4 @@
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
-import azure.core.exceptions
-import os 
 from dotenv import load_dotenv, find_dotenv
 from pathlib import Path
 import time

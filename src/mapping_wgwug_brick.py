@@ -5,6 +5,7 @@ import pickle
 excel_file = 'MappingColumbus_400543847.xlsx'
 df = pd.read_excel(excel_file, usecols=['WG', 'WUG', 'Brick Code'])
 
+
 # Create a translation table from WG and WUG to Brick Code
 wg_wug_to_brick_translation_table = df.drop_duplicates(subset=['WG', 'WUG']).set_index(['WG', 'WUG'])['Brick Code'].to_dict()
 

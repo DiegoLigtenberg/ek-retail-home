@@ -11,4 +11,4 @@ COPY . /app
 RUN pip install -r requirements.txt
 
 # Run ek_home_columbus_azure.py when the container launches
-CMD ["python", "ek_home_columbus_azure.py"]
+CMD ["python", "src/ek_home_columbus_azure.py"]
