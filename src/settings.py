@@ -6,3 +6,4 @@ load_dotenv(find_dotenv(),override=True)
 CONNECTION_STRING = os.getenv("CONNECTION_STRING")
 BATCH_SIZE = 2
 
+# print(CONNECTION_STRING)
